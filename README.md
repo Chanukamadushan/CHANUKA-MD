@@ -1,2 +1,8 @@
 # CHANUKA-MD
-CHANUKA MD whatsapp bot
+🎴CHANUKA MD WHATSAPP BOT🤖🌱
+
+👁️👃👁️
+  👅
+You’re
+█▄█ █▀█ ▀█▀
+█▀█ █▄█    █♡
