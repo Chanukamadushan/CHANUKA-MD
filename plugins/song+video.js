@@ -2,9 +2,9 @@ const {cmd , commands} = require('../command')
 const fg = require('api-dylux')
 const yts = require('yt-search')
 cmd({
-    pattern: "alive",
+    pattern: "song",
     desc: "Check bot online or no.",
-    category: "main",
+    category: "download",
     filename: __filename
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -36,11 +36,11 @@ let downloadUrl = down.dl_url
 
 
 //send audio massage 
-await conn.sendmassage(from,audio: {url:downloadUrl}mimetype:"audio/mpeg"},{quoted:mek})
+await conn.sendmassage(from,{audio: {url:downloadUrl},mimetype:"audio/mpeg"},{quoted:mek})
   
-{catch(e)}
+}catch(e){
 console.log(e)
 replyl('${e}')
+}
 
-{
-{
+})
