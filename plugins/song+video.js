@@ -15,9 +15,7 @@ const data = search.video[0];
 const url = data.url
 
   
-let desc = `
-🌐 *CHANUKA-MD SONG DOWNLOADER* 🌐
-
+let desc = 
 title: ${data.title}
 depcription: ${data.depcrition}
 time: ${data.timestamp}
@@ -25,7 +23,7 @@ ago: ${data.ago}
 views: ${data.views}
 
 MADE BY CHANUKA-MD 💙🌋
-´
+
 
 await conn.sendmassage(from,{image: {url: data.thambnail},caption:desc}.{quoted:mek}):
 
@@ -44,3 +42,4 @@ replyl('${e}')
 }
 
 })
+
