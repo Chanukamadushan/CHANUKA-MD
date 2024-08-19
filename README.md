@@ -1,4 +1,4 @@
-# ❮ CHANUKA-MD whatsapp bot ❯
+# ❮ CHANUKA-MD ❯
 
 🎴CHANUKA MD WHATSAPP BOT🤖🌱
 
