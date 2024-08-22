@@ -151,9 +151,9 @@ m.react("🌟")
 
         
 //======================work-type====================================================== 
-if(!isowner && config.MODE === "private") return 
-if(!isowner && isGroup config.MODE === "inbox") return
-if(!isowner && isGroup config.MODE === "groups") return
+if(!isOwner && config.MODE === "private") return 
+if(!isOwner && !isGroup config.MODE === "inbox") return
+if(!isOwner && isGroup config.MODE === "groups") return
 //=====================================================================================
 
 
@@ -196,4 +196,4 @@ res.send("hey, bot started✅");
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
 connectToWA()
-}, 4000);  
+}, 4000);
