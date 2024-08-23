@@ -69,7 +69,7 @@ require("./plugins/" + plugin);
 console.log('Plugins installed successful ✅')
 console.log('Bot connected to whatsapp ✅')
 
-let up = `CHANUKA-MD-BOT connected successful ✅\n\nPREFIX: ${prefix}`;
+let up = `𝐂𝐇𝐀𝐍𝐔𝐊𝐀-MD-BOT connected successful ✅\n\nPREFIX: ${prefix}`;
 
 conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://github.com/user-attachments/assets/32adb81b-67a7-40f6-851b-4e681f57ddac` }, caption: up })
 
