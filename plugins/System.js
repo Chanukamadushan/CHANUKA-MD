@@ -21,7 +21,7 @@ let status = `*Uptime:*  ${runtime(process.uptime())}
 return replay('${status}')
   
 }catch(e){
-console.log.(e)
+console.log(e)
 reply('${e}')
 
 }
