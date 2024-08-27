@@ -1,6 +1,10 @@
+const {readEnv} =require('../lib/database')
+const {cmd , commands} = require('../command')
+const { fetchjson } = require(('../lib/functions')
+    
 cmd({
-    pattern: "alive",
-    desc: "Check bot online or no.",
+    pattern: "ai",
+    desc: "ai chat",
     category: "main",
     filename: __filename
 },
@@ -8,8 +12,11 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 const config = await readEnv();
 return await conn.sendMessage(from,{image: {url: config.ALIVE_IMG},caption: config.ALIVE_MSG},{quoted: mek})
+let data = await fetchjson(`https://chatgptforprabath-md.vercel.app/api/gptv1?q=${q}`)
+return reply(`${data.data}`)
 }catch(e){
 console.log(e)
 reply(`${e}`)
 }
 })
+
