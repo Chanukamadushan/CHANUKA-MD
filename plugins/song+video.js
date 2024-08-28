@@ -29,7 +29,7 @@ views: ${data.views}
 MADE BY CHANUKA-MD 💙🌋
 `
 
-await conn.sendmassage(from,{image: {url: data.thambnail},caption:desc}.{quoted:mek}):
+await conn.sendmassage(from,{image:{url: data.thambnail},caption:desc}.{quoted:mek}):
 
 //dawnload audio
 
