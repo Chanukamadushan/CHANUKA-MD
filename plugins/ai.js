@@ -1,6 +1,6 @@
 const {readEnv} =require('../lib/database')
 const {cmd , commands} = require('../command')
-const { fetchjson } = require(('../lib/functions')
+const { fetchjson } = require('../lib/functions')
     
 cmd({
     pattern: "ai",
