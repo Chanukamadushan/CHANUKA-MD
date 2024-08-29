@@ -18,8 +18,7 @@ const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
 const { File } = require('megajs')
 
-
-const ownerNumber = ['94741469245']
+const ownerNumber = ['94769089430']
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
@@ -39,18 +38,18 @@ const port = process.env.PORT || 8000;
 //=============================================
 
 async function connectToWA() {
-//===========connect mongodb ==============
+
+// ========================= Connect mongoDB URL =========================
 
 const connectDB = require('./lib/mongodb')
 connectDB();
-//==========================================
 
+// ==================================================
 const {readEnv} = require('./lib/database')
 const config = await readEnv();
-const prefix = config.PREFIX 
-//==========================================        
-        
-console.log("Connecting 💚CHANUKA-MD💚 ...");
+const prefix = config.PREFIX
+// ==================================================
+console.log("Connecting wa bot 🧬...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -80,9 +79,17 @@ require("./plugins/" + plugin);
 console.log('Plugins installed successful ✅')
 console.log('Bot connected to whatsapp ✅')
 
-let up = `𝐂𝐇𝐀𝐍𝐔𝐊𝐀-MD-BOT connected successful ✅\n\nPREFIX: ${prefix}`;
+let up = `*BINU MD CONNECTED SUCCESSFUL...✅*
 
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://github.com/user-attachments/assets/32adb81b-67a7-40f6-851b-4e681f57ddac` }, caption: up })
+👉 ɢʀᴏᴜᴘ - https://chat.whatsapp.com/BanbIuf6wtI14pCbtWy2i6
+
+👉 ᴄʜᴀɴɴᴇʟ - https://whatsapp.com/channel/0029VagVrb63rZZcQ9HRX32y
+
+👉 ᴏᴡɴᴇʀ  - +94769089430
+
+*🌹☺️ - ʜᴀᴠᴇ ᴀ ɴɪᴄᴇ ᴅᴀʏ -  ☺️🌹*\n\nPREFIX: ${prefix}`;
+
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/982640de2d7f18fced629.jpg` }, caption: up })
 
 }
 })
@@ -93,10 +100,8 @@ mek = mek.messages[0]
 if (!mek.message) return	
 mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
 if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS === "true"){
-await  conn.readMassages([mek.key])
-
+await conn.readMessages([mek.key])
 }
-
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
 const content = JSON.stringify(mek.message)
@@ -121,7 +126,6 @@ const participants = isGroup ? await groupMetadata.participants : ''
 const groupAdmins = isGroup ? await getGroupAdmins(participants) : ''
 const isBotAdmins = isGroup ? groupAdmins.includes(botNumber2) : false
 const isAdmins = isGroup ? groupAdmins.includes(sender) : false
-const isReact = m.massage.reactionMassage ? true : false
 const reply = (teks) => {
 conn.sendMessage(from, { text: teks }, { quoted: mek })
 }
@@ -146,27 +150,14 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
               if (mime.split("/")[0] === "audio") {
                 return conn.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options }, { quoted: quoted, ...options })
               }
-           }
-        
-//====================owner-react===========================
-        
-if(senderNumber.includes("94741469245")){
-if(isReact) return 
-m.react("💚")
-}
-if(senderNumber.includes("94770659867")){
-if(isReact) return 
-m.react("🌟")
-}
-//=============================================================
+            }
+//============================ WORK-TYPE ==========================
 
-        
-//======================work-type====================================================== 
-if(!isOwner && config.MODE === "private") return 
-if(!isOwner && !isGroup &&  config.MODE === "inbox") return
-if(!isOwner && isGroup &&  config.MODE === "groups") return
-//=====================================================================================
+if(!isOwner && config.MODE === "private") return
+if(!isOwner && isGroup && config.MODE === "inbox") return
+if(!isOwner && !isGroup && config.MODE === "groups") return
 
+//===============
 
 const events = require('./command')
 const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
@@ -198,6 +189,7 @@ mek.type === "stickerMessage"
 ) {
 command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
 }});
+//============================================================================ 
 
 })
 }
@@ -207,4 +199,4 @@ res.send("hey, bot started✅");
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
 connectToWA()
-}, 4000);
+}, 4000);  
