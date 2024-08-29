@@ -1,12 +1,12 @@
 {
-  "name": "CHANUKA-MD",
+  "name": "binuMd",
   "version": "1.0.0",
-  "description": "A simple CHANUKA-MD bot",
+  "description": "A WhatsApp bot created using Node.js",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name CHANUKA-MD",
-    "stop": "pm2 stop wabot",
-    "restart": "pm2 restart CHANUKA-MD"
+    "start": "pm2 start index.js --deep-monitoring --attach --name binuMd",
+    "stop": "pm2 stop binuMd",
+    "restart": "pm2 restart binuMd"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "6.6.0",
